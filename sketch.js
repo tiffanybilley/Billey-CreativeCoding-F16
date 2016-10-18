@@ -1,26 +1,25 @@
 var bubble; 
-var rectangle; 
+var rect; 
 var a;
 var b;
 var c; 
 
 function setup() {
-  createCanvas(700, 400);
+  createCanvas(710, 400);
   bubble = movement();
   a = 150;
   b = 10;
   c = 0;
-  s = random(0,700);
-  t = random(0,400);
+  rect = [];
 }
 
 function draw() {
-  	background(50, 50, 100);
-  	//movement();
-  	bubblevisual();
-  	backandforth();
-  	mousePressed();
-  	//diameterOfNone();
+    background(50, 50, 100);
+    //jitter();
+    bubblevisual();
+    backandforth();
+    //mousePressed();
+    //mouseReleased();
 }
 
 function movement() {
@@ -31,35 +30,24 @@ function movement() {
 }
 
 function backandforth() {
-	x += random(-speed, speed);
-    y += random(-speed, speed);
+  x += random(-speed, speed);
+  y += random(-speed, speed);
 }
 
 function bubblevisual() {
-	fill(a,0,0);
-    ellipse(x, y, diameter, diameter);
+  fill(a,0,0);
+  ellipse(x, y, diameter, diameter);
 
 }
 
 function mousePressed(){
-	push();
-	a = a + 50;
-	diameter =  diameter - 10;
-	pop();
-	if (diameter < 0){
-		random(0,700);
-	}
-}
-/*
-function diameterOfNone(){
-	if (diameter <  0){
-		ellipse(s,t,2,2);
-		ellipse(s,t,2,2);
-		ellipse(s,t,2,2);
-		ellipse(s,t,2,2);
-		ellipse(s,t,2,2);
-	}
+  a = a + 50;
+  diameter =  diameter - 10;
+  //rect.push(rect(mouseX,mouseY));
 }
 
-*/
 
+
+function mouseReleased(){
+  a = a + 50;
+}
